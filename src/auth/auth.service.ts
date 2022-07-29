@@ -34,8 +34,6 @@ export class AuthService {
         password: hashSync(password, 10),
       });
 
-      delete user.password;
-
       return {
         ...user.toJSON(),
         token: this.getJwtToken({ email: user.email }),
@@ -82,6 +80,13 @@ export class AuthService {
       throw new NotFoundException(`user with id or email "${term}" not found`);
 
     return user;
+  }
+
+  async checkAuthStatus(user) {
+    return {
+      ...user.toJSON(),
+      token: this.getJwtToken({ email: user.email }),
+    };
   }
 
   private getJwtToken(payload: JwtPayload) {

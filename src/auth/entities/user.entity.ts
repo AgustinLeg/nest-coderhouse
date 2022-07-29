@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
@@ -36,7 +37,7 @@ export class User extends Document {
     enum: ['USER', 'ADMIN', 'RESELLER'],
     default: 'USER',
   })
-  roles: string;
+  role: string;
 
   @Prop({
     type: Date,
@@ -46,4 +47,11 @@ export class User extends Document {
   createdAt: Date;
 }
 
-export const UserSchema = SchemaFactory.createForClass(User);
+const UserSchema = SchemaFactory.createForClass(User);
+
+UserSchema.methods.toJSON = function () {
+  const { __v, password, ...user } = this.toObject();
+  return user;
+};
+
+export { UserSchema };
