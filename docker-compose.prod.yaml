@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  nest-coderhouse:
+    depends_on:
+      - db
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: nest-coderhouse-docker
+    container_name: nest-coderhouse
+    restart: always # reiniciar el contenedor si se detiene
+    ports:
+      - "${PORT}:${PORT}"
+    # working_dir: /var/www/nest-coderhouse
+    environment:
+      MONGODB: ${MONGODB}
+      PORT: ${PORT}
+      DEFAULT_LIMIT: ${DEFAULT_LIMIT}
+    # volumes:
+    #   - ./:/var/www/nest-coderhouse
+
+  db:
+    image: mongo:5
+    container_name: mongo-coderhouse
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGODB_DATABASE: nest-coderhouse
+    # volumes:
+    #   - ./mongo:/data/db
