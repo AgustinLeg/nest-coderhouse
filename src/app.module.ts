@@ -10,6 +10,7 @@ import { CommonModule } from './common/common.module';
 import { SeedModule } from './seed/seed.module';
 import { EnvConfiguration } from './config/app.config';
 import { JoiValidationSchema } from './config/joi.validation';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -29,6 +30,8 @@ import { JoiValidationSchema } from './config/joi.validation';
     CommonModule,
 
     SeedModule,
+
+    AuthModule,
   ],
 })
 export class AppModule {}
