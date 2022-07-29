@@ -2,6 +2,15 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
+# Backend Coderhouse API
+
+## Documentacion (beta)
+
+En tu navegador de preferencia
+```
+http://localhost:3000/api
+```
+
 # Desarrollo
 
 1. Clonar el repositorio
@@ -38,6 +47,7 @@ yarn start:dev
 ```
 http://localhost:3000/api/seed
 ```
+
 
 # Docker
 
