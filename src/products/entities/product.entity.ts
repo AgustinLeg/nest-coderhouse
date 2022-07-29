@@ -13,7 +13,7 @@ export class Product extends Document {
   @Prop({
     unique: true,
     index: true,
-    isRequired: true,
+    required: true,
   })
   name: string;
 
@@ -25,7 +25,7 @@ export class Product extends Document {
   @Prop({
     unique: true,
     index: true,
-    isRequired: true,
+    required: true,
   })
   slug: string;
 
@@ -35,7 +35,7 @@ export class Product extends Document {
     description: 'Product principal image',
   })
   @Prop({
-    isRequired: true,
+    required: true,
   })
   image: string;
 
@@ -44,7 +44,7 @@ export class Product extends Document {
     description: 'Product stock',
   })
   @Prop({
-    isRequired: true,
+    required: true,
     isInteger: true,
   })
   stock: number;
@@ -54,7 +54,7 @@ export class Product extends Document {
     description: 'Product price',
   })
   @Prop({
-    isRequired: true,
+    required: true,
     isInteger: true,
   })
   price: number;
@@ -65,7 +65,7 @@ export class Product extends Document {
     description: 'Product description',
   })
   @Prop({
-    isRequired: false,
+    required: false,
     default: '',
   })
   description?: string;
@@ -76,7 +76,7 @@ export class Product extends Document {
   })
   @Prop({
     type: Date,
-    isRequired: true,
+    required: true,
     default: new Date().getTime(),
   })
   createdAt: Date;

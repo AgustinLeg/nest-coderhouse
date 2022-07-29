@@ -89,6 +89,20 @@ export class AuthService {
     };
   }
 
+  async remove(id) {
+    if (!isValidObjectId(id))
+      throw new BadRequestException(`user with id "${id}" not found`);
+
+    try {
+      const user = await this.userModel
+        .findByIdAndUpdate(id, { isActive: false })
+        .lean();
+      return user;
+    } catch (error) {
+      this.handleExeptions(error);
+    }
+  }
+
   private getJwtToken(payload: JwtPayload) {
     const token = this.jwtService.sign(payload);
     return token;

@@ -42,8 +42,7 @@ export class ProductsService {
       .find()
       .limit(limit)
       .skip(offset)
-      .sort({ createdAt: 1 })
-      .select('-__v');
+      .sort({ createdAt: 1 });
   }
 
   async findOne(term: string) {

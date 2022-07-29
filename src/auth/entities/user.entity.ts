@@ -6,34 +6,34 @@ import { Document } from 'mongoose';
 export class User extends Document {
   @Prop({
     unique: true,
-    isRequired: true,
+    required: true,
     index: true,
   })
   email: string;
 
   @Prop({
-    isRequired: true,
+    required: true,
   })
   password: string;
 
   @Prop({
-    isRequired: true,
+    required: true,
   })
   name: string;
 
   @Prop({
-    isRequired: true,
+    required: true,
   })
   lastName: string;
 
   @Prop({
-    isRequired: true,
+    required: true,
     default: true,
   })
   isActive: boolean;
 
   @Prop({
-    isRequired: true,
+    required: true,
     enum: ['USER', 'ADMIN', 'RESELLER'],
     default: 'USER',
   })
@@ -41,7 +41,7 @@ export class User extends Document {
 
   @Prop({
     type: Date,
-    isRequired: true,
+    required: true,
     default: new Date().getTime(),
   })
   createdAt: Date;
