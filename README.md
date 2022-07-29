@@ -39,7 +39,7 @@ yarn start:dev
 http://localhost:3000/api/seed
 ```
 
-## Docker
+# Docker
 
 1. Copiar y renombrar el archivo `.env.example` por `.env.prod`
 
